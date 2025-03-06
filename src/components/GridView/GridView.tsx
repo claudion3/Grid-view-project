@@ -34,7 +34,7 @@ const GridView: React.FC<GridViewProps> = ({ data }) => {
             <img
               src={tile.imagePath}
               alt={tile.title}
-              className="w-full h-64 object-cover" // Adjust height as needed
+              className="w-full h-64 object-cover"
             />
             <div className="p-4">
               <h2 className="font-bold text-xl mb-2">{tile.title}</h2>

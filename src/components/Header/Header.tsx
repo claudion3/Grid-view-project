@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
 import TileBuilder from '../TileBuilder/TileBuilder';
-import bgImage from '../../assets/images/bg.jpg'; // Import the background image
+import bgImage from '../../assets/images/bg.jpg';
 
 interface HeaderProps {
   onSearch: (term: string) => void;
@@ -15,14 +15,14 @@ const Header: React.FC<HeaderProps> = ({ onSearch, onAddTile }) => {
     <header
       className="bg-cover bg-center h-64 flex flex-col justify-center items-center relative py-8"
       style={{
-        backgroundImage: `url(${bgImage})`, // Use the imported image
+        backgroundImage: `url(${bgImage})`,
       }}
     >
       {/* Header Title */}
       <h1 className="text-4xl font-bold text-white mb-8">Grid View Project</h1>
 
       {/* Search and Add Tile Button */}
-      <div className="absolute top-6 right-6 flex items-center gap-4">
+      <div className="absolute bottom-6 right-12 flex items-center gap-4 md:top-6 md:bottom-auto">
         <input
           type="text"
           placeholder="Search..."
@@ -41,8 +41,8 @@ const Header: React.FC<HeaderProps> = ({ onSearch, onAddTile }) => {
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <TileBuilder
           onAddTile={(tile) => {
-            onAddTile(tile); // Add the tile to the data
-            setIsModalOpen(false); // Close the modal
+            onAddTile(tile);
+            setIsModalOpen(false);
           }}
         />
       </Modal>
