@@ -19,19 +19,19 @@ const Header: React.FC<HeaderProps> = ({ onSearch, onAddTile }) => {
       }}
     >
       {/* Header Title */}
-      <h1 className="text-4xl font-bold text-white mb-8">Grid View Project</h1>
+      <h1 className="text-4xl font-bold text-white mb-4 sm:mb-8">Grid View Project</h1>
 
       {/* Search and Add Tile Button */}
-      <div className="absolute bottom-6 right-12 flex items-center gap-4 md:top-6 md:bottom-auto">
+      <div className="absolute bottom-4 left-4 right-4 flex flex-col items-center gap-4 sm:flex-row sm:absolute sm:top-6 sm:right-6 sm:bottom-auto sm:left-auto">
         <input
           type="text"
           placeholder="Search..."
           onChange={(e) => onSearch(e.target.value)}
-          className="p-2 border border-gray-300 rounded-lg bg-white bg-opacity-90 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full sm:w-auto p-2 border border-gray-300 rounded-lg bg-white bg-opacity-90 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
         <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+          className="w-full sm:w-auto bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
         >
           Add Tile
         </button>
