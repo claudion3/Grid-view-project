@@ -26,7 +26,7 @@ const GridView: React.FC<GridViewProps> = ({ data }) => {
     <div className="flex flex-col min-h-full">
       {/* Grid */}
       {data.length === 0 ? (
-        <div className="text-center text-gray-600 mt-8">
+        <div className="text-center text-gray-600 mt-8" aria-live="polite"> {/* Add aria-live */}
           No results found.
         </div>
       ) : (
@@ -52,6 +52,14 @@ const GridView: React.FC<GridViewProps> = ({ data }) => {
 
           {/* Pagination */}
           <div className="flex justify-center p-6">
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="mx-2 px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors disabled:opacity-50"
+              aria-label="Previous page" // Add aria-label
+            >
+              Previous
+            </button>
             {Array.from({ length: totalPages }, (_, i) => (
               <button
                 key={i + 1}
@@ -61,10 +69,19 @@ const GridView: React.FC<GridViewProps> = ({ data }) => {
                     ? 'bg-blue-500 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 } transition-colors`}
+                aria-label={`Go to page ${i + 1}`} // Add aria-label
               >
                 {i + 1}
               </button>
             ))}
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="mx-2 px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors disabled:opacity-50"
+              aria-label="Next page" // Add aria-label
+            >
+              Next
+            </button>
           </div>
         </>
       )}
