@@ -9,7 +9,6 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
-  // Focus trapping
   useEffect(() => {
     if (isOpen && modalRef.current) {
       const focusableElements = modalRef.current.querySelectorAll(
@@ -21,7 +20,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     }
   }, [isOpen]);
 
-  // Handle Escape key
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -38,7 +36,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     };
   }, [isOpen, onClose]);
 
-  // Handle click outside
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
@@ -70,7 +68,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl"
-          aria-label="Close modal" // Add aria-label
+          aria-label="Close modal"
         >
           &times;
         </button>

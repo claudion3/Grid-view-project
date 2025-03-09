@@ -23,6 +23,7 @@ const Header: React.FC<HeaderProps> = ({ onSearch, onAddTile }) => {
 
       {/* Search and Add Tile Button */}
       <div className="absolute bottom-4 left-4 right-4 flex flex-col items-center gap-4 sm:flex-row sm:absolute sm:top-6 sm:right-6 sm:bottom-auto sm:left-auto">
+
         <input
           type="text"
           placeholder="Search..."
